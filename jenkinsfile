@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "nixonlauture/docker-filest"
+    registry = "nixonlauture/docker-files"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
@@ -18,6 +18,17 @@ pipeline {
         }
       }
     }
+
+    stage('Test Mkdocs' ) {
+                agent {
+                docker { image 'anishnath/mkdocs:$BUILD_NUMBER' }
+            }
+            steps {
+                sh 'mkdocs --version'
+            }
+        }
+
+
     stage('Deploy Image') {
       steps{
         script {
