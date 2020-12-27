@@ -24,7 +24,7 @@ pipeline {
                 docker { image 'nixonlauture/docker-files:$BUILD_NUMBER' }
             }
             steps {
-                sh 'nginx -v'
+                sh 'httpd -v'
             }
         }
 
