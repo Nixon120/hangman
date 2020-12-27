@@ -1,4 +1,4 @@
-FROM httpd:latest
-COPY ./index.html /usr/share/nginx/html/index.html
+FROM apache2:latest
+COPY ./index.html /usr/share/apache2/html/index.html
 
 
